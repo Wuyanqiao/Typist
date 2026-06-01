@@ -140,9 +140,9 @@ public partial class Form1 : Form
     #endregion
 
     #region System Tray
-    protected override void OnResizeChanged(EventArgs e)
+    protected override void OnResize(EventArgs e)
     {
-        base.OnResizeChanged(e);
+        base.OnResize(e);
         if (_settings.MinimizeToTray && WindowState == FormWindowState.Minimized)
         {
             Hide();
@@ -334,7 +334,7 @@ public partial class Form1 : Form
         _draftTabControl = new TabControl
         {
             Dock = DockStyle.Fill,
-            Padding = new Padding(12, 6, 12, 6),
+            Padding = new Point(12, 6),
             Font = new Font(Font.FontFamily, 9F)
         };
 
@@ -803,7 +803,8 @@ public partial class Form1 : Form
     }
 
     private void HighlightActivePreset()
-    {
+{
+    if (_delayInput is null) return;
         var current = (int)_delayInput.Value;
         SetPresetHighlight(_speedSlowButton, current == 100);
         SetPresetHighlight(_speedNormalButton, current == 60);
@@ -907,7 +908,8 @@ public partial class Form1 : Form
 
     #region Char Count & ETA
     private void UpdateCharCount()
-    {
+{
+    if (_charCountLabel is null || _etaLabel is null) return;
         var text = GetCurrentDraftText();
         var count = text.Length;
         var lines = string.IsNullOrEmpty(text) ? 0 : text.Split('\n').Length;
@@ -916,7 +918,8 @@ public partial class Form1 : Form
     }
 
     private void UpdateEta()
-    {
+{
+    if (_delayInput is null || _etaLabel is null) return;
         var text = GetCurrentDraftText();
         if (string.IsNullOrEmpty(text))
         {

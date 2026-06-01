@@ -6,6 +6,14 @@ static class Program
     static void Main()
     {
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
+
+        // Load settings from disk
+        var settings = AppSettings.Load();
+
+        // Run the application
+        Application.Run(new Form1(settings));
+
+        // Save settings on exit
+        settings.Save();
     }
 }

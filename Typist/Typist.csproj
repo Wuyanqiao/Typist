@@ -6,6 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon />
+    <AssemblyName>Typist</AssemblyName>
+    <RootNamespace>Typist</RootNamespace>
+    <Version>2.0.0</Version>
+    <Authors>Wuyanqiao; renaiss1-c</Authors>
+    <Description>Windows 打字助手 - 自动逐字符发送键盘输入到目标窗口</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+  </ItemGroup>
 
 </Project>

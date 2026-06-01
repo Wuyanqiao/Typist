@@ -4,14 +4,22 @@
 
 ## 运行
 
+普通用户可以从 [Releases](https://github.com/Wuyanqiao/Typist/releases) 下载最新版本。`v0.1.0` 提供 Windows x64 单文件程序：
+
+- [下载 Typist-win-x64.exe](https://github.com/Wuyanqiao/Typist/releases/download/v0.1.0/Typist-win-x64.exe)
+
+下载后直接运行 `Typist-win-x64.exe`。
+
+开发环境也可以从源码运行：
+
 ```powershell
 dotnet run --project .\Typist\Typist.csproj
 ```
 
-也可以直接运行构建后的程序：
+构建 Windows x64 单文件版本：
 
 ```powershell
-.\Typist\bin\Debug\net9.0-windows\Typist.exe
+dotnet publish .\Typist\Typist.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o .\artifacts\Typist-win-x64
 ```
 
 ## 使用
